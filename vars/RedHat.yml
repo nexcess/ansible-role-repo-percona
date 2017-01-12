@@ -1,0 +1,4 @@
+---
+
+percona_repo_url: "https://www.percona.com/redir/downloads/percona-release/redhat/{{ percona_repo_version }}/percona-release-{{ percona_repo_version }}.noarch.rpm"
+percona_repo_file_path: "/etc/yum.repos.d/percona-release.repo"
