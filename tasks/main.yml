@@ -1,0 +1,21 @@
+---
+
+- name: Check if Percona Repo Exists
+  stat: path={{ percona_repo_file_path }}
+  register: percona_repo_file_result
+
+- name: Install the Percona Repo
+  package:
+    name: "{{ percona_repo_url }}"
+    state: present
+  register: result
+  until: '"failed" not in result'
+  retries: 5
+  delay: 10
+  when: not percona_repo_file_result.stat.exists
+
+- name: Make Sure the Percona GPG Key is Imported
+  rpm_key:
+    key: "{{ percona_repo_gpg_key_url }}"
+    state: present
+  when: not percona_repo_file_result.stat.exists

@@ -1,0 +1,4 @@
+---
+
+percona_repo_version: "0.1-4"
+percona_repo_gpg_key_url: "https://www.percona.com/redir/downloads/percona-release/RPM-GPG-KEY-percona"
